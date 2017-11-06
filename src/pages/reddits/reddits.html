@@ -1,0 +1,85 @@
+<ion-header>
+<ion-toolbar color="primary">
+  <ion-title>RedditHub</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+        <ion-label fixed>Subreddit</ion-label>          
+        <ion-select (ionChange)="changeSubreddit()" [(ngModel)]="subreddit" name="subreddit">
+            <ion-option value="all">All</ion-option>
+            <ion-option value="csharp">C#</ion-option>
+            <ion-option value="coding">Coding</ion-option>
+            <ion-option value="computerscience">Computerscience</ion-option>
+            <ion-option value="cpp">Cpp</ion-option>
+            <ion-option value="CrappyDesign">CrappyDesign</ion-option>
+            <ion-option value="css">CSS</ion-option>
+            <ion-option value="csshelp">CSShelp</ion-option>
+            <ion-option value="dailyprogrammer">Dailyprogrammer</ion-option>
+            <ion-option value="justneckbeardthings">Justneckbeardthings</ion-option>
+            <ion-option value="delphi">Delphi</ion-option>
+            <ion-option value="engineering">Engineering</ion-option>
+            <ion-option value="gamedev">Gamedev</ion-option>
+            <ion-option value="haskell">Haskell</ion-option>
+            <ion-option value="html">HTML</ion-option>
+            <ion-option value="html5">HTML5</ion-option>
+            <ion-option value="iOSProgramming">iOSProgramming</ion-option>
+            <ion-option value="java">Java</ion-option>
+            <ion-option value="javahelp">Javahelp</ion-option>
+            <ion-option value="javascript">Javascript</ion-option>
+            <ion-option value="jquery">jQuery</ion-option>
+            <ion-option value="learnprogramming">LearnProgramming</ion-option>
+            <ion-option value="learnpython">LearnPython</ion-option>
+            <ion-option value="linux">Linux</ion-option>¨
+            <ion-option value="netsec">NetSec</ion-option>
+            <ion-option value="node">Node</ion-option>
+            <ion-option value="perl">Perl</ion-option>
+            <ion-option value="php">PHP</ion-option>
+            <ion-option value="programmer">Programmer</ion-option>
+            <ion-option value="ProgrammerHumor">ProgrammerHumor</ion-option>
+            <ion-option value="programming">Programming</ion-option>
+            <ion-option value="python">Python</ion-option>
+            <ion-option value="ruby">Ruby</ion-option>
+            <ion-option value="swift">Swift</ion-option>
+            <ion-option value="technology">Technology</ion-option>
+            <ion-option value="techsupport">Techsupport</ion-option>
+            <ion-option value="web_design">Webdesign</ion-option>
+            <ion-option value="web_dev">Webdevelopment</ion-option>
+            <ion-option value="wolfram">Wolfram</ion-option>
+        </ion-select>
+    </ion-item>
+ </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let collection of collections">
+      <ion-thumbnail item-left>
+        <img onerror="this.style.display='none'" src="{{collection.data.thumbnail}}">
+      </ion-thumbnail>
+      <h2>{{collection.data.title}}</h2> <p>{{collection.data.subreddit_name_prefixed}}</p>
+      <p>
+        <ion-icon name="thumbs-up"> {{collection.data.score}}</ion-icon>
+        <ion-icon name="chatbubbles"> {{collection.data.num_comments}}</ion-icon>
+         by {{collection.data.author}}
+      </p>
+      <button ion-button clear item-right (click)="showItem(collection.data)">View</button>
+    </ion-item>
+  </ion-list>
+  <button ion-button block (click)="fakeLoading()">Show more</button>
+
+    <ion-fab left bottom>
+    <button ion-fab color="dark"><ion-icon name="arrow-dropup"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab><ion-icon name="logo-github"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-dropbox"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+    </ion-fab-list>
+</ion-fab>
+
+</ion-content>

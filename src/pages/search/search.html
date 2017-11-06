@@ -1,0 +1,273 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      RedditHub
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="reddits">
+      <ion-segment-button value="communities">
+        Communities
+      </ion-segment-button>
+      <ion-segment-button value="subreddits">
+        Subreddits
+      </ion-segment-button>
+      <ion-segment-button value="posts">
+        Posts
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+ <div [ngSwitch]="reddits">
+    <ion-list *ngSwitchCase="'subreddits'">
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+          <ion-item *ngFor="let item of items">
+            {{ item }}
+          </ion-item>
+        </ion-list>
+  
+<ion-card>
+  <ion-list *ngSwitchCase="'communities'">
+    <ion-card-header>
+      Explore communities
+    </ion-card-header>
+
+      <button ion-item>
+        <ion-icon name="logo-android" item-left></ion-icon>
+        Android
+      </button>
+
+      <button ion-item>
+        <ion-icon name="logo-angular" item-left></ion-icon>
+        Angular
+      </button>
+
+      <button ion-item>
+        <ion-icon name="logo-codepen" item-left></ion-icon>
+        Codepen
+      </button>
+
+      <button ion-item>
+        <ion-icon name="logo-css3" item-left></ion-icon>
+        CSS
+      </button>
+
+      <button ion-item>
+        <ion-icon name="git-branch" item-left></ion-icon>
+        Git
+      </button>
+
+      <button ion-item>
+        <ion-icon name="logo-github" item-left></ion-icon>
+        Github
+      </button>
+
+      <button ion-item>
+        <ion-icon name="logo-html5" item-left></ion-icon>
+        HTML
+      </button>
+
+      <button ion-item>
+        <ion-icon name="logo-apple" item-left></ion-icon>
+        IOS / Apple
+      </button>
+
+      <button ion-item>
+        <ion-icon name="logo-javascript" item-left></ion-icon>
+        Javascript
+      </button>
+
+      <button ion-item>
+        <ion-icon name="logo-nodejs" item-left></ion-icon>
+        NodeJS
+      </button>
+
+      <button ion-item>
+        <ion-icon name="logo-python" item-left></ion-icon>
+        Python
+      </button>
+
+      <button ion-item>
+        <ion-icon name="logo-sass" item-left></ion-icon>
+        SASS
+      </button>
+
+</ion-list>
+</ion-card>
+
+<ion-list *ngSwitchCase="'posts'">
+    <ion-list-header>
+      Posts from today
+    </ion-list-header>
+
+    <ion-item-sliding>
+      <ion-item>
+        <h2>Johan Olander</h2> 30 sec ago to <i>/r/node</i>
+        <p>Does anyone know how to uninstall node.js?</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="light" icon-left>
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        <button ion-button color="danger" icon-left>
+          <ion-icon name="flag"></ion-icon>
+          Report
+        </button>
+        <button ion-button color="primary" icon-left>
+          <ion-icon name="mail"></ion-icon>
+          Message
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+
+    <ion-item-sliding>
+      <ion-item>
+        <h2>Nicholas Flod</h2> 1 min ago to <i>/r/javahelp</i>
+        <p>If anyone needs help with java, contact me</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="light" icon-left>
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        <button ion-button color="danger" icon-left>
+          <ion-icon name="flag"></ion-icon>
+          Report
+        </button>
+        <button ion-button color="primary" icon-left>
+          <ion-icon name="mail"></ion-icon>
+          Message
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+      <ion-item>
+        <h2>Jesper Thörnberg</h2> 3 mins ago to <i>/r/linux</i>
+        <p>Please download my new app for Västtrafik, link @ profile</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="light" icon-left>
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        <button ion-button color="danger" icon-left>
+          <ion-icon name="flag"></ion-icon>
+          Report
+        </button>
+        <button ion-button color="primary" icon-left>
+          <ion-icon name="mail"></ion-icon>
+          Message
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+      <ion-item>
+        <h2>John Väisänen</h2> 3 mins ago to <i>/r/css</i>
+        <p>Anyone know how to center a picture? thx</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="light" icon-left>
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        <button ion-button color="danger" icon-left>
+          <ion-icon name="flag"></ion-icon>
+          Report
+        </button>
+        <button ion-button color="primary" icon-left>
+          <ion-icon name="mail"></ion-icon>
+          Message
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+      <ion-item>
+        <h2>Johan Olander</h2> 4 mins ago to <i>/r/node</i>
+        <p>How do I start with node.js and what is npm?</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="light" icon-left>
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        <button ion-button color="danger" icon-left>
+          <ion-icon name="flag"></ion-icon>
+          Report
+        </button>
+        <button ion-button color="primary" icon-left>
+          <ion-icon name="mail"></ion-icon>
+          Message
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+      <ion-item>
+        <h2>Jobobo Forsiti</h2> 5 mins ago to <i>/r/python</i>
+        <p>Creating a game - need help</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="light" icon-left>
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        <button ion-button color="danger" icon-left>
+          <ion-icon name="flag"></ion-icon>
+          Report
+        </button>
+        <button ion-button color="primary" icon-left>
+          <ion-icon name="mail"></ion-icon>
+          Message
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ion-item-sliding>
+      <ion-item>
+        <h2>Rickard Börjesson</h2> 7 mins ago to <i>/r/ruby</i>
+        <p>What's the difference between Ruby and Ruby on rails?</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="light" icon-left>
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        <button ion-button color="danger" icon-left>
+          <ion-icon name="flag"></ion-icon>
+          Report
+        </button>
+        <button ion-button color="primary" icon-left>
+          <ion-icon name="mail"></ion-icon>
+          Message
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+</div>
+
+
+  <ion-fab left bottom>
+    <button ion-fab color="dark"><ion-icon name="arrow-dropup"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab><ion-icon name="logo-github"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-dropbox"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+    </ion-fab-list>
+</ion-fab>
+
+</ion-content>

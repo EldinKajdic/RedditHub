@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      {{collection.title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card>
+  <img src="{{collection.preview.images[0].source.url}}"/>
+  <ion-card-content>
+    <ion-card-title>
+      {{collection.title}}
+      </ion-card-title>
+ <ion-list>
+     <ion-item>
+         <ion-icon name="person" item-left></ion-icon>
+         Author
+         <ion-note>
+             {{collection.author}}
+         </ion-note>
+     </ion-item>
+      <ion-item>
+         <ion-icon name="thumbs-up" item-left></ion-icon>
+         Upvotes
+         <ion-note>
+             {{collection.score}}
+         </ion-note>
+     </ion-item>
+      <ion-item>
+         <ion-icon name="chatboxes" item-left></ion-icon>
+         Comments
+         <ion-note>
+             {{collection.num_comments}}
+         </ion-note>
+     </ion-item>
+ </ion-list>
+ <a ion-button block href="http://reddit.com/{{collection.permalink}}" target="_blank">View on Reddit</a>
+  </ion-card-content>
+</ion-card>
+</ion-content>
